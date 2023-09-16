@@ -5,11 +5,18 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract SnrsRs is ERC20 {
+    address public protocolAddress;
+
     constructor() ERC20("SnrsRs", "SRS") {
         _mint(msg.sender, 1000000000000000000000000000);
     }
 
-    function mint(address to, uint256 amount) public {
+    modifier onlyProtocol() {
+        require(msg.sender == protocolAddress, "Not protocol");
+        _;
+    }
+
+    function mint(address to, uint256 amount) onlyProtocol public {
         _mint(to, amount);
     }
 

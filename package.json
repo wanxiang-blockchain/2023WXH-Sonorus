@@ -30,6 +30,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.9.3"
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/merkle-tree": "^1.0.5"
   }
 }
